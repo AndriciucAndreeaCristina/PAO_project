@@ -74,5 +74,16 @@ public abstract class Aliment {
     public int hashCode() {
         return Objects.hash(pret, dataExpirare, ingrediente, calorii, tip);
     }
+
+    @Override
+    public String toString() {
+        return "Aliment{" +
+                "pret=" + pret +
+                ", dataExpirare=" + dataExpirare +
+                ", ingrediente=" + ingrediente +
+                ", calorii=" + calorii +
+                ", tip=" + tip.getNume() +
+                '}';
+    }
 }
 
