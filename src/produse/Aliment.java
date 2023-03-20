@@ -1,37 +1,40 @@
-package src;
+package src.produse;
+
+import src.produse.tipuri.Categorie;
 
 import java.util.List;
 import java.util.Objects;
 
 public abstract class Aliment {
     //pret, data expirare, ingrediente, calorii, tip aliment.
-      protected float pret;
-      protected int dataExpirare;
-      protected List<String> ingrediente;
-      protected float calorii;
+    protected Float pret;
+    protected Integer dataExpirare;
+    protected List<String> ingrediente;
+    protected Float calorii;
 
-      protected CATEGORIE tip;
-    public Aliment(float pret, int dataExpirare, List<String> ingrediente) {
+    protected Categorie tip;
+
+    public Aliment(Float pret, Integer dataExpirare, List<String> ingrediente) {
         this.pret = pret;
         this.dataExpirare = dataExpirare;
         this.ingrediente = ingrediente;
-        this.calorii = 0;
-        this.tip = CATEGORIE.ALTELE;
+        this.calorii = 0F;
+        this.tip = Categorie.ALTELE;
     }
 
-    public float getPret() {
+    public Float getPret() {
         return pret;
     }
 
-    public void setPret(float pret) {
+    public void setPret(Float pret) {
         this.pret = pret;
     }
 
-    public int getDataExpirare() {
+    public Integer getDataExpirare() {
         return dataExpirare;
     }
 
-    public void setDataExpirare(int dataExpirare) {
+    public void setDataExpirare(Integer dataExpirare) {
         this.dataExpirare = dataExpirare;
     }
 
@@ -43,19 +46,19 @@ public abstract class Aliment {
         this.ingrediente = ingrediente;
     }
 
-    public float getCalorii() {
+    public Float getCalorii() {
         return calorii;
     }
 
-    public void setCalorii(float calorii) {
+    public void setCalorii(Float calorii) {
         this.calorii = calorii;
     }
 
-    public CATEGORIE getTip() {
+    public Categorie getTip() {
         return tip;
     }
 
-    public void setTip(CATEGORIE tip) {
+    public void setTip(Categorie tip) {
         this.tip = tip;
     }
 
@@ -64,7 +67,7 @@ public abstract class Aliment {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Aliment aliment = (Aliment) o;
-        return Float.compare(aliment.pret, pret) == 0 && dataExpirare == aliment.dataExpirare && Float.compare(aliment.calorii, calorii) == 0 && Objects.equals(ingrediente, aliment.ingrediente) && tip == aliment.tip;
+        return pret.equals(aliment.pret) && dataExpirare.equals(aliment.dataExpirare) && Objects.equals(ingrediente, aliment.ingrediente) && calorii.equals(aliment.calorii) && tip == aliment.tip;
     }
 
     @Override
@@ -77,9 +80,9 @@ public abstract class Aliment {
         return "Aliment{" +
                 "pret=" + pret +
                 ", dataExpirare=" + dataExpirare +
-                ", Ingrediente=" + ingrediente +
+                ", ingrediente=" + ingrediente +
                 ", calorii=" + calorii +
-                ", tip=" + tip +
+                ", tip=" + tip.getNume() +
                 '}';
     }
 }
